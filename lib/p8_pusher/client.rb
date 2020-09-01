@@ -1,4 +1,8 @@
-module P8push
+require 'openssl'
+require 'jwt'
+require 'net-http2'
+
+module P8Pusher
 
   APPLE_PRODUCTION_JWT_URI = 'https://api.push.apple.com'.freeze
   APPLE_DEVELOPMENT_JWT_URI = 'https://api.development.push.apple.com'.freeze
@@ -37,10 +41,14 @@ module P8push
       h['apns-priority'] = '10'
       h['apns-topic'] = topic
       h['authorization'] = "bearer #{jwt_token}"
-      res = client.call(:post, '/3/device/'+token, body: payload.to_json, timeout: @timeout,
+
+      res = client.call(:post, '/3/device/'+token,
+                        body: payload.to_json,
+                        timeout: @timeout,
                         headers: h)
       client.close
       return nil if res.status.to_i == 200
+
       res.body
     end
 
@@ -56,8 +64,10 @@ module P8push
 
         notification.id = index
 
-        err = jwt_http2_post(notification.topic, notification.payload, notification.token)
-        if err == nil
+        err = jwt_http2_post(notification.topic,
+                             notification.payload,
+                             notification.token)
+        if err.nil?
           notification.mark_as_sent!
         else
           puts err

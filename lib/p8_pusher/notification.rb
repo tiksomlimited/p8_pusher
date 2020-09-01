@@ -1,6 +1,6 @@
 require 'json'
 
-module P8push
+module P8Pusher
   class Notification
     class APNSError < RuntimeError
       CODES = {
