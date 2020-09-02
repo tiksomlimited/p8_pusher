@@ -32,4 +32,5 @@ Gem::Specification.new do |spec|
 
   # Development Dependencies
   spec.add_development_dependency 'rspec', '~> 3.9'
+  spec.add_development_dependency 'simplecov', '~> 0.17.1'
 end
