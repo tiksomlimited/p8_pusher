@@ -22,7 +22,7 @@ Or install it yourself as:
 
 # p8push
 
-Add the following to your `.env` file with appropriate keys
+Add the following to your `.env`
 ```
 export APN_PRIVATE_KEY=/path/APNsAuthKey_ABCDE12345.p8 
 export APN_TEAM_ID=XYZDE99911
@@ -32,13 +32,13 @@ export APN_BUNDLE_ID=com.bundle.id
 
 #### Basic Use
 
-```
-APN = P8push::Client.development
-token = 'GETREALTOKENFROMADEVICE'
-notification = P8push::Notification.new(device: token)
+```ruby
+CLIENT = P8Pusher::Client.development # use '.production' for production use
+devise_token = 'SOMEDEVISETOKEN'
+notification = P8Pusher::Notification.new(device: devise_token)
 notification.alert = 'Hello, World!'
-notification.topic = 'com.some.other.id' # if you do not want default ENV['APN_BUNDLE_ID'] one
-APN.push(notification)
+notification.topic = 'com.some.other.id' # default is ENV['APN_BUNDLE_ID']
+CLIENT.push(notification)
 ```
 ## Development
 
