@@ -29,7 +29,7 @@ module P8Pusher
 
     MAXIMUM_PAYLOAD_SIZE = 2048
 
-    attr_accessor :topic, :token, :alert, :badge, :sound, :category, :content_available, :mutable_content,
+    attr_accessor :topic, :token, :title, :subtitle, :body, :badge, :sound, :category, :content_available, :mutable_content,
                   :custom_data, :id, :expiry, :priority
     attr_reader :sent_at
     attr_writer :apns_error_code
@@ -39,7 +39,9 @@ module P8Pusher
 
     def initialize(options = {})
       @token = options.delete(:token) || options.delete(:device)
-      @alert = options.delete(:alert)
+      @title = options.delete(:title)
+      @subtitle = options.delete(:subtitle)
+      @body = options.delete(:body)
       @topic = options.delete(:topic) || ENV['APN_BUNDLE_ID']
       @badge = options.delete(:badge)
       @sound = options.delete(:sound)
@@ -57,7 +59,10 @@ module P8Pusher
       json = {}.merge(@custom_data || {}).inject({}) { |h, (k, v)| h[k.to_s] = v; h }
 
       json['aps'] ||= {}
-      json['aps']['alert'] = @alert if @alert
+      json['aps']['alert'] ||= {}
+      json['aps']['alert']['title'] = @title if @title
+      json['aps']['alert']['subtitle'] = @subtitle if @subtitle
+      json['aps']['alert']['body'] = @body if @body
       json['aps']['badge'] = @badge&.to_i if @badge
       json['aps']['sound'] = @sound if @sound
       json['aps']['category'] = @category if @category

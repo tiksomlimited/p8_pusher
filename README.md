@@ -2,6 +2,8 @@
 
 Ruby Gem for Apple push notifications using new p8 format instead of pem file.
 
+This gem is inspired by [p8push](https://rubygems.org/gems/p8push). Along with modern `Ruby` syntax and **better test coverage**, It also includes new alert attributes such as `title`, `subtitle`, `body`.
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -36,7 +38,11 @@ export APN_BUNDLE_ID=com.bundle.id
 CLIENT = P8Pusher::Client.development # use '.production' for production use
 devise_token = 'SOMEDEVISETOKEN'
 notification = P8Pusher::Notification.new(device: devise_token)
-notification.alert = 'Hello, World!'
+notification.title = 'Title'
+notification.subtitle = 'Subtitle'
+notification.body = 'Body Content'
+notification.sound = 'default'
+notification.badge = 5
 notification.topic = 'com.some.other.id' # default is ENV['APN_BUNDLE_ID']
 CLIENT.push(notification)
 ```
