@@ -3,7 +3,7 @@ require_relative 'lib/p8_pusher/version'
 Gem::Specification.new do |spec|
   spec.name = 'p8_pusher'
   spec.version = P8Pusher::VERSION
-  spec.authors = ['sumar7']
+  spec.authors = ['Sajjad Umar (sumar7)']
   spec.email = ['sajjadumardev@gmail.com']
 
   spec.summary = 'Apple push notifications using the new p8 format instead of pemfile'
