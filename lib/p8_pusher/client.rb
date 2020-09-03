@@ -28,6 +28,8 @@ module P8Pusher
       @team_id = ENV['APN_TEAM_ID']
       @key_id = ENV['APN_KEY_ID']
       @timeout = Float(ENV['APN_TIMEOUT'] || 2.0)
+    rescue StandardError => e
+      raise "#{e.message}: invalid keys, make sure you have the required keys in .env file"
     end
 
     def jwt_http2_post(topic, payload, token)

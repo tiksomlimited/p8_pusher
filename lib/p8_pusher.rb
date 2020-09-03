@@ -4,5 +4,4 @@ require 'p8_pusher/notification'
 
 module P8Pusher
   class Error < StandardError; end
-  # Your code goes here...
 end
