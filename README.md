@@ -1,8 +1,6 @@
 # P8Pusher
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/p8_pusher`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Ruby Gem for Apple push notifications using new p8 format instead of pem file.
 
 ## Installation
 
@@ -22,8 +20,26 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+# p8push
 
+Add the following to your `.env` file with appropriate keys
+```
+export APN_PRIVATE_KEY=/path/APNsAuthKey_ABCDE12345.p8 
+export APN_TEAM_ID=XYZDE99911
+export APN_KEY_ID=ABCDE12345
+export APN_BUNDLE_ID=com.bundle.id
+```
+
+####Basic Use
+
+```
+APN = P8push::Client.development
+token = 'GETREALTOKENFROMADEVICE'
+notification = P8push::Notification.new(device: token)
+notification.alert = 'Hello, World!'
+notification.topic = 'com.some.other.id' # if you do not want default ENV['APN_BUNDLE_ID'] one
+APN.push(notification)
+```
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
