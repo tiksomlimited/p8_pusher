@@ -13,11 +13,13 @@ jobs:
       - name: Install dependencies
         run: bundle install
       - name: Run tests
+        uses: paambaati/codeclimate-action@v2.6.0
         env:
           APN_PRIVATE_KEY: SOmEpriVateKEy.p8
           APN_TEAM_ID: R9A8N7D1O0M
           APN_KEY_ID: R0A3N4D3O1M
           APN_BUNDLE_ID: com.some.id
-        run:
-          touch SOmEpriVateKEy.p8
-          bundle exec rspec
+          CC_TEST_REPORTER_ID: 6f299cbcb1304f5d8169cb0eb721407700b34647fe237acdd9a4092797e47600
+        with:
+          coverageCommand: bundle exec rspec
+          debug: true
