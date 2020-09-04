@@ -12,6 +12,8 @@ jobs:
           bundler-cache: true
       - name: Install dependencies
         run: bundle install
+      - name: Create p8 file
+        run: touch SOmEpriVateKEy.p8
       - name: Run tests
         uses: paambaati/codeclimate-action@v2.6.0
         env:
