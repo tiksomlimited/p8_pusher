@@ -1,6 +1,6 @@
 # P8Pusher
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/796ce5f9f600f7078209/maintainability)](https://codeclimate.com/github/tiksomlimited/p8_pusher/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/796ce5f9f600f7078209/test_coverage)](https://codeclimate.com/github/tiksomlimited/p8_pusher/test_coverage) [![p8_pusher Status](https://github.com/tiksomlimited/p8_pusher/workflows/CI/badge.svg)](https://github.com/tiksomlimited/p8_pusher/actions)
+[![p8_pusher Status](https://github.com/tiksomlimited/p8_pusher/workflows/CI/badge.svg)](https://github.com/tiksomlimited/p8_pusher/actions) [![Gem Version](https://badge.fury.io/rb/p8_pusher.svg)](https://badge.fury.io/rb/p8_pusher) [![Maintainability](https://api.codeclimate.com/v1/badges/796ce5f9f600f7078209/maintainability)](https://codeclimate.com/github/tiksomlimited/p8_pusher/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/796ce5f9f600f7078209/test_coverage)](https://codeclimate.com/github/tiksomlimited/p8_pusher/test_coverage)
 
 Ruby Gem for Apple push notifications using new p8 format instead of pem file.
 
