@@ -10,11 +10,9 @@ jobs:
         with:
           ruby-version: 2.7.x
       - name: Build and run tests
-        env:
-          RAILS_ENV: test
         run:
           gem install bundler
-          bundle install --jobs 4 --retry 3
+          bundle install
           bundle exec rspec spec
 
 
