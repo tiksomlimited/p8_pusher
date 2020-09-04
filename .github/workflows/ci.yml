@@ -14,8 +14,8 @@ jobs:
         run: bundle install
       - name: Run tests
         env:
-          APN_PRIVATE_KEY=SOmEpriVateKEy
-          APN_TEAM_ID=R9A8N7D1O0M
-          APN_KEY_ID=R0A3N4D3O1M
-          APN_BUNDLE_ID=com.some.id
+          APN_PRIVATE_KEY: SOmEpriVateKEy
+          APN_TEAM_ID: R9A8N7D1O0M
+          APN_KEY_ID: R0A3N4D3O1M
+          APN_BUNDLE_ID: com.some.id
         run: bundle exec rspec
