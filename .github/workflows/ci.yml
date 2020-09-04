@@ -13,7 +13,7 @@ jobs:
         run:
           gem install bundler
           bundle install
-          bundle exec rspec spec
+          rspec spec
 
 
 
