@@ -9,8 +9,8 @@ jobs:
         uses: actions/setup-ruby@v1
         with:
           ruby-version: 2.7.x
-      - name: Build and run tests
-        run:
-          gem install bundler
-          bundle install
-          bundle exec rspec
+          bundler-cache: true
+      - name: Install dependencies
+        run: bundle install
+      - name: Run tests
+          run: bundle exec rspec
